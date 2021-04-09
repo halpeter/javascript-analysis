@@ -16,6 +16,8 @@ For this project, I was tasked to write code that will create a table dynamicall
 
 * I used a date form in my HTML document and wrote JavaScript code that will listen for events and search through the `date/time` column to find rows that match user input.
 
+The Javascript for the above items can be seen [here](UFO-level-1/statis/js/app.js).
+
 ### Level 2: Multiple Search Categories (Optional)
 
 After completing all of Level 1 criteria, I enhanced the user's capabilities by:

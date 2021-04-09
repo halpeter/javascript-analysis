@@ -9,6 +9,8 @@ var tbody = d3.select('tbody');
 
 // Create a function tp input the data into the HTML
 function makeTable(d) {
+    // Clear any existing table
+    tbody.html('')
     d.forEach((ufoSightings) => {
         var row = tbody.append("tr");
         Object.entries(ufoSightings).forEach(([key, value]) => {
@@ -42,7 +44,7 @@ function runEnter () {
     // Get the value property of the input element
     var inputDate = inputElement.property("value");
 
-    var filterDate = tableData.filter(tableData => tableData.datetime === inputDate);
+    var filterDate = tableData.filter(tableData=> tableData.datetime === inputDate);
 
     console.log(filterDate);
 
@@ -57,6 +59,9 @@ function runEnter () {
 
     // If filter date is outside of data then show error
     else {
+        // Clear any existing table
+        tbody.html('')
+        // Show message
         tbody.append("tr").append("td").text("No Sightings Here...Try a date within the range: 1/1/2010 and 1/13/2010");
     }
 
