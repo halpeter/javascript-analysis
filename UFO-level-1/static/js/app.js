@@ -5,19 +5,19 @@ var tableData = data;
 console.log(data);
 
 // Create References for table
-var $tbody = d3.select("tbody");
-var columns = ["datetime", "city", "state", "country", "shape", "durationMinutes", "comments"]
+var tbody = d3.select('tbody');
 
-// Inputing the data into the HTML
-data.forEach((ufoSightings) => {
-    var row = $tbody.append("tr");
-    Object.entries(ufoSightings).forEach(([key, columns]) => {
-      var cell = row.append("td");
-      cell.text(columns);
+// Create a function tp input the data into the HTML
+function makeTable(d) {
+    d.forEach((ufoSightings) => {
+        var row = tbody.append("tr");
+        Object.entries(ufoSightings).forEach(([key, value]) => {
+        var cell = row.append("td");
+        cell.text(value);
+        });
     });
-  });
-
-
+}
+    
 // Creating an Event Listener for the Button
 // Setting up the Filter Button for Date 
 
@@ -25,7 +25,7 @@ data.forEach((ufoSightings) => {
 var button = d3.select("#filter-btn");
 
 // Select the form
-var form = d3.select("#form");
+var form = d3.select("form");
 
 // Create event handlers for clicking the button or pressing the enter key
 button.on("click", runEnter);
@@ -46,67 +46,23 @@ function runEnter () {
 
     console.log(filterDate);
 
-    // $tbody.html("");
-
     let response = {
         filterDate
     }
 
-
+    // Display only filtered data in table
     if(response.filterDate.length !== 0) {
-        filterDate.forEach(function(search) {
-            console.log(search);
-            var row = $tbody.append('tr');
-            Object.entries(search).forEach(function([key, columns]) {
-                var cell = row.append('td');
-                cell.text(value);
-            });
-        });
-
+        makeTable(filterDate)
     }
 
-    // Top if only works for filtering the date
-    
+    // If filter date is outside of data then show error
     else {
-        $tbody.append("tr").append("td").text("No Sightings Here...Move On...");
+        tbody.append("tr").append("td").text("No Sightings Here...Try a date within the range: 1/1/2010 and 1/13/2010");
     }
 
 }
 
-// button.on("click", () => {
-
-//     d3.event.preventDefault();
-    
-
-//     var inputDate = inputFieldDate.property("value").trim();
-//     // console.log(inputDate)
-//     // https://www.w3schools.com/jsref/jsref_tolowercase.asp
-//     // var inputCity = inputFieldCity.property("value").toLowerCase().trim();
-//     // console.log(inputCity)
-//     // var inputState = inputFieldState.property("value").toLowerCase().trim();
-//     // var inputCountry = inputFieldCountry.property("value").toLowerCase().trim();
-//     // var inputShape = inputFieldShape.property("value").toLowerCase().trim();
-    
-
-//     var filterDate = tableData.filter(tableData => tableData.datetime === inputDate);
-    
-
-//     $tbody.html("");
-
-//     let response = {
-//         filterDate
-//     }
-
-
-//     if(response.filterDate.length !== 0) {
-//         addData(filterDate);
-//     }
-
-//     // Top if only works for filtering the date
-    
-//         else {
-//             $tbody.append("tr").append("td").text("No Sightings Here...Move On...");
-//         }
-// })
+// Show data in the table on the website
+makeTable(data)
 
 
