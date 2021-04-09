@@ -10,7 +10,7 @@ For this project, I was tasked to write code that will create a table dynamicall
 
 * I created a basic HTML web page seen at [Index.html](UFO-level-1/index.html)
 
-* Using the UFO dataset provided in the form of an array of JavaScript objects, I wrote code that appends a table to my web page and then adds new rows of data for each UFO sighting.
+* Using the [UFO dataset](UFO-level-1/static/js/data.js) provided in the form of an array of JavaScript objects, I wrote code that appends a table to my web page and then adds new rows of data for each UFO sighting.
 
   * I made sure to include the following columns `date/time`, `city`, `state`, `country`, `shape`, and `comment`.
 
