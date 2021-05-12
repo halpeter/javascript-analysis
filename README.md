@@ -2,7 +2,7 @@
 
 ## Background
 
-For this project, I was tasked to write code that will create a table dynamically based upon a [dataset we provide](StarterCode/static/js/data.js). I also needed to allow the users to filter the table data for specific values. 
+For this project, I was tasked to write code that will create a table dynamically based upon a [dataset provided](StarterCode/static/js/data.js). I also needed to allow the users to filter the table data for specific values. 
 
 ## My Task
 
