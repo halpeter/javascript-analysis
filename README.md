@@ -1,4 +1,4 @@
-# javascript-challenge
+# Javascript Analysis
 
 ## Background
 
